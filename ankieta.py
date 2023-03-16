@@ -71,3 +71,13 @@ zestaw7 = {"1": "kryminały/thrillery",
 odpowiedz0 = input(pytanie0 + " ")
 
 print(pytanie1)
+for opcja in zestaw1:
+    print(opcja, ". ", zestaw1[opcja])
+
+odpowiedz1 = input("Podaj numer: ")
+
+
+
+# raport
+print(pytanie0, " ", odpowiedz0)
+print(pytanie1, " ", zestaw1[odpowiedz1])
