@@ -6,7 +6,7 @@ b = input("Podaj druga liczbę: ")
 op = input("Podaj działanie: ")
 
 # sprawdzenie czy a i b są liczbami
-while a.isdigit() is False or b.isdigit() is False:
+while a.replace('.', '', 1).isdigit() is False or b.replace('.', '', 1).isdigit() is False:
     print("Proszę podać prawidłową liczbę!")
     a = input("Podaj pierwszą liczbę: ")
     b = input("Podaj druga liczbę: ")
@@ -46,4 +46,7 @@ elif op == "%":
 else:
     wynik = "Wystapił błąd"
 
-print("Wynik: " + str(round(wynik)))
+if str(wynik).replace('.', '', 1).isdigit():
+    print("Wynik: ", float(wynik))
+else:
+    print(wynik)
