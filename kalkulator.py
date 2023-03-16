@@ -22,25 +22,28 @@ while op not in {"+", "-", "*", "/", "//", "**", "%"}:
 # zamiana napisow na liczby
 a = float(a)
 b = float(b)
-if (op == "/" or op == "//") and b == 0:
-    wynik = "Nie można dzielić przez 0!"
 
-else:
-    if op == "+":
-        wynik = a + b
-    elif op == "-":
-        wynik = a - b
-    elif op == "*":
-        wynik = a * b
-    elif op == "/":
-        wynik = a / b
-    elif op == "//":
-        wynik = a // b
-    elif op == "**":
-        wynik = a ** b
-    elif op == "%":
-        wynik = a % b
+if op == "+":
+    wynik = a + b
+elif op == "-":
+    wynik = a - b
+elif op == "*":
+    wynik = a * b
+elif op == "/":
+    if b == 0:
+        wynik = "Nie można dzielić przez 0!"
     else:
-        wynik = "Wystapił błąd"
+        wynik = a / b
+elif op == "//":
+    if b == 0:
+        wynik = "Nie można dzielić przez 0!"
+    else:
+        wynik = a // b
+elif op == "**":
+    wynik = a ** b
+elif op == "%":
+    wynik = a % b
+else:
+    wynik = "Wystapił błąd"
 
 print("Wynik: " + str(round(wynik)))
