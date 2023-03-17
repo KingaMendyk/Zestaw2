@@ -10,6 +10,8 @@ pytanie5 = "Ile książek czytasz średnio w ciągu roku?"
 pytanie6 = "Jak często średnio czytasz książki?"
 pytanie7 = "Po jakie gatunki książek sięgasz najczęściej?"
 
+pytania = [pytanie1, pytanie2, pytanie3, pytanie4, pytanie5, pytanie6, pytanie7]
+
 zestaw1 = {"1": "ogladanie telewizji/filmów/seriali",
            "2": "czytanie książek/czasopism",
            "3": "słuchanie muzyki",
@@ -68,16 +70,25 @@ zestaw7 = {"1": "kryminały/thrillery",
            "14": "poezję",
            "15": "inne"}
 
-odpowiedz0 = input(pytanie0 + " ")
+zestawy = [zestaw1, zestaw2, zestaw3, zestaw4, zestaw5, zestaw6, zestaw7]
+odpowiedzi = []
 
-print(pytanie1)
-for opcja in zestaw1:
-    print(opcja, ". ", zestaw1[opcja])
+# Ankieta
+print("****************ANKIETA******************")
+odpowiedzi.append(input(pytanie0 + " "))
 
-odpowiedz1 = input("Podaj numer: ")
-
-
+for i in range(7):
+    print("Pytanie " + str(i+1) + ". " + pytania[i])
+    for opcja in zestawy[i]:
+        print(opcja, zestawy[i][opcja], sep=". ")
+    odpowiedzi.append(input("Podaj numer: "))
 
 # raport
-print(pytanie0, " ", odpowiedz0)
-print(pytanie1, " ", zestaw1[odpowiedz1])
+print("\n****************RAPORT********************")
+print("Pytanie: ", pytanie0, "\nOdpowiedź: ", odpowiedzi[0])
+for i in range(7):
+    print("Pytanie: ", pytania[i], "\nOdpowiedź: ", end="")
+    if odpowiedzi[i+1] in zestawy[i]:
+        print(zestawy[i][odpowiedzi[i+1]])
+    else:
+        print("Podano błędnie odpowiedź")
